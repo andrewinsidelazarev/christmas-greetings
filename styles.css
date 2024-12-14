@@ -51,6 +51,23 @@ body {
   max-width: 400px;
   width: calc(100% - 40px); /* Отступы по 20px с каждой стороны */
   z-index: 1; /* Карточка выше снежинок */
+  font-family: 'Dancing Script', cursive; /* Праздничный шрифт для карточки */
+}
+
+.card h1 {
+  font-size: 2em;
+  font-weight: 700; /* Жирный шрифт для заголовка */
+  margin: 0;
+  color: #ffdf00; /* Золотистый цвет для заголовка */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Легкая тень */
+}
+
+.card p {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 10px 0 0;
+  line-height: 1.5;
+  color: #ffffff; /* Белый цвет текста */
 }
 
 #background-audio {
@@ -84,4 +101,3 @@ body {
     margin: 0 20px; /* Для мобильных устройств оставляем отступы */
   }
 }
-
