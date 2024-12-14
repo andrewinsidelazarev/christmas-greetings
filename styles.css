@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('wallpaper.webp') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  overflow: hidden; /* Чтобы снежинки не выходили за границы */
+  user-select: none; /* Запрет на выделение текста, чтобы случайно не мешать кликам */
+  position: relative; /* Задаем контекст для z-index */
+}
+
+.snow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Снежинки не блокируют взаимодействие */
+  z-index: 0; /* Снежинки будут ниже карточки */
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -50px; /* Начальная позиция чуть выше экрана */
+  width: 20px;
+  height: 20px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg); /* Падение вниз с вращением */
+  }
+}
+
+.card {
+  position: relative; /* Чтобы снежинки не мешали содержимому карточки */
+  background: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  z-index: 1; /* Карточка выше снежинок */
+}
+
+#background-audio {
+  display: none; /* Прячем элемент аудио */
+}
+
+.audio-control {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.audio-control button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.audio-control button:hover {
+  background-color: #f0f0f0;
+}
