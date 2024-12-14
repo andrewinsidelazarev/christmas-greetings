@@ -9,7 +9,7 @@ body {
   min-height: 100vh;
   color: #fff;
   overflow: hidden; /* Чтобы снежинки не выходили за границы */
-  user-select: none; /* Запрет на выделение текста, чтобы случайно не мешать кликам */
+  user-select: none; /* Запрет на выделение текста */
   position: relative; /* Задаем контекст для z-index */
 }
 
@@ -20,7 +20,7 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none; /* Снежинки не блокируют взаимодействие */
-  z-index: 0; /* Снежинки будут ниже карточки */
+  z-index: 0; /* Снежинки ниже карточки */
   overflow: hidden;
 }
 
@@ -49,7 +49,7 @@ body {
   padding: 20px;
   text-align: center;
   max-width: 400px;
-  width: 90%;
+  width: calc(100% - 40px); /* Отступы по 20px с каждой стороны */
   z-index: 1; /* Карточка выше снежинок */
 }
 
@@ -75,4 +75,11 @@ body {
 
 .audio-control button:hover {
   background-color: #f0f0f0;
+}
+
+/* Дополнительная адаптация для очень узких экранов */
+@media (max-width: 768px) {
+  .card {
+    width: calc(100% - 40px); /* Отступы по 20px */
+  }
 }
