@@ -39,30 +39,13 @@ const backgroundAudio = document.getElementById('background-audio');
 // Установить громкость
 backgroundAudio.volume = 0.25;
 
-// Таймер для определения одиночного или двойного клика
-let clickTimer = null;
-
-// Обработчик на весь экран
-document.body.addEventListener('click', (e) => {
-  // Если клик одинарный
-  if (clickTimer === null) {
-    clickTimer = setTimeout(() => {
-      // Одиночный клик — включение музыки
-      if (backgroundAudio.paused) {
-        backgroundAudio.play();
-      }
-      clickTimer = null; // Сбрасываем таймер
-    }, 200); // Устанавливаем задержку для определения двойного клика
-  }
-});
-
-// Двойной клик — выключение музыки
-document.body.addEventListener('dblclick', (e) => {
-  clearTimeout(clickTimer); // Сбрасываем одиночный клик
-  clickTimer = null; // Очищаем таймер
-
-  // Двойной клик — остановка музыки
-  if (!backgroundAudio.paused) {
+// Обработчик на весь экран по клику
+document.body.addEventListener('click', () => {
+  // Включить или выключить музыку в зависимости от текущего состояния
+  if (backgroundAudio.paused) {
+    backgroundAudio.play();
+  } else {
     backgroundAudio.pause();
   }
 });
+
